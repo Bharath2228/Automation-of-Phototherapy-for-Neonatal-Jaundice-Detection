@@ -1,10 +1,9 @@
 #include <LiquidCrystal.h>
-
 #include "DHT.h"
-
 #define DHTPIN 25   
-
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+
+
 long int seconds=0; 
 int minutes=0; 
 int hours=0; 
@@ -130,8 +129,6 @@ void setup() {
 void loop() {
   // Wait a few seconds between measurements.
   
-
-
   float h = dht.readHumidity();
   // Read temperature as Celsius (the default)
   float t = dht.readTemperature();
