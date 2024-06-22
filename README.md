@@ -63,5 +63,3 @@ Ensure you have a webcam connected and properly configured. You'll also need val
 
 - Adjust threshold values (`np.average(B) < 110` and `np.average(Cb) < 110`) for optimal jaundice detection in varying lighting conditions.
 - Ensure proper setup and functionality of external devices for controlled actions.
-
-```
