@@ -1,59 +1,3 @@
-### Introduction
-
-Introduce your project briefly, explaining its purpose and the problem it aims to solve. Highlight its unique features or benefits.
-
-### Features
-
-List the key features of your project:
-
-- Skin detection using YCrCb color space.
-- Contour analysis for jaundice symptom detection.
-- Real-time webcam feed analysis.
-- SMS notifications using Twilio.
-- Control of external devices via serial communication.
-
-### Prerequisites
-
-Detail any prerequisites or dependencies users need to have installed or set up before running your script. Include links or instructions for where to obtain these dependencies if necessary.
-
-### Installation
-
-Provide step-by-step instructions on how to install and set up your project:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Bharath2228/Automation-of-Phototherapy-for-Neonatal-Jaundice-Detection.git
-   ```
-
-2. Configure Twilio API credentials:
-   - Sign up for Twilio and obtain your Account SID, Auth Token, and Twilio phone number.
-   - Replace placeholders in the script (`# twilio Account ID`, `# Authorization Token`, `from_='----------'`, `to='----------'`) with your actual Twilio credentials.
-
-3. Configure serial communication:
-   - Adjust the `port` (`e.port = "COM9"`) to match your serial port.
-   - Modify baudrate (`e.baudrate = 115200`) if required.
-
-### Usage
-
-Explain how to use your project:
-
-- Run `jaundice_detection.py`.
-- Ensure the webcam is correctly positioned and lighting conditions are suitable for accurate detection.
-- Monitor the console for detection results and status updates.
-- Respond to SMS notifications sent by the script.
-
-### Troubleshooting
-
-Provide troubleshooting tips for common issues users might encounter, such as:
-
-- Webcam not detected.
-- Incorrect Twilio credentials.
-- Serial communication errors.
-
-### Example
-
-Here's an example of how your `README.md` file might look with these additional sections:
-
 ```markdown
 # Jaundice Detection and Notification System
 
@@ -61,15 +5,15 @@ This project utilizes computer vision techniques to detect jaundice in captured 
 
 ## Introduction
 
-Jaundice is a common condition in infants and adults, characterized by yellowing of the skin and eyes due to elevated bilirubin levels in the blood. This system aims to assist in early detection and prompt notification for timely medical intervention.
+Jaundice is a common condition characterized by yellowing of the skin and eyes due to elevated bilirubin levels in the blood. Early detection is crucial for timely medical intervention. This system aims to automate the detection process and provide prompt notifications.
 
 ## Features
 
-- Skin detection using YCrCb color space.
-- Contour analysis for jaundice symptom detection.
-- Real-time webcam feed analysis.
-- SMS notifications using Twilio.
-- Control of external devices via serial communication.
+- **Skin Detection:** Utilizes the YCrCb color space for skin detection.
+- **Contour Analysis:** Identifies potential jaundice symptoms based on contour analysis.
+- **Real-time Analysis:** Monitors live webcam feed for immediate detection.
+- **SMS Notifications:** Sends notifications to specified recipients via Twilio.
+- **External Device Control:** Controls an external device (e.g., LED) based on detection results using serial communication.
 
 ## Prerequisites
 
@@ -79,33 +23,46 @@ Jaundice is a common condition in infants and adults, characterized by yellowing
 - cvzone (`pip install cvzone`)
 - Twilio (`pip install twilio`)
 
-Ensure you have a webcam connected and configured properly. You also need valid Twilio API credentials for SMS notifications and a compatible serial device for external control.
+Ensure you have a webcam connected and properly configured. You'll also need valid Twilio API credentials for SMS notifications and a compatible serial device for external control.
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Bharath2228/Automation-of-Phototherapy-for-Neonatal-Jaundice-Detection.git
    cd Automation-of-Phototherapy-for-Neonatal-Jaundice-Detection
    ```
 
-2. Configure Twilio API credentials:
+2. **Configure Twilio API credentials:**
    - Sign up for Twilio and obtain your Account SID, Auth Token, and Twilio phone number.
-   - Replace placeholders in the script (`# twilio Account ID`, `# Authorization Token`, `from_='----------'`, `to='----------'`) with your actual Twilio credentials.
+   - Replace placeholders (`# twilio Account ID`, `# Authorization Token`, `from_='----------'`, `to='----------'`) with your actual Twilio credentials in `jaundice_detection.py`.
 
-3. Configure serial communication:
-   - Adjust the `port` (`e.port = "COM9"`) to match your serial port.
-   - Modify baudrate (`e.baudrate = 115200`) if required.
+3. **Configure serial communication:**
+   - Modify the `port` in `e.port = "COM9"` to match your serial port.
+   - Adjust baudrate (`e.baudrate = 115200`) if required.
 
 ## Usage
 
-- Run `jaundice_detection.py`.
-- Ensure the webcam is correctly positioned and lighting conditions are suitable for accurate detection.
-- Monitor the console for detection results and status updates.
-- Respond to SMS notifications sent by the script.
+1. **Run the script:**
+   ```bash
+   python main.py
+   ```
+
+2. **Operating Instructions:**
+   - Position the webcam to capture the subject's face adequately.
+   - Ensure sufficient lighting for accurate skin detection.
+   - Monitor console for detection results and status updates.
+   - Respond to SMS notifications sent by the script.
 
 ## Troubleshooting
 
 - **Webcam not detected:** Check webcam connections and drivers.
 - **Twilio credentials incorrect:** Verify Twilio Account SID, Auth Token, and phone numbers.
 - **Serial communication issues:** Ensure correct port and baudrate settings.
+
+## Additional Notes
+
+- Adjust threshold values (`np.average(B) < 110` and `np.average(Cb) < 110`) for optimal jaundice detection in varying lighting conditions.
+- Ensure proper setup and functionality of external devices for controlled actions.
+
+```
