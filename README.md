@@ -1,4 +1,3 @@
-```markdown
 # Jaundice Detection and Notification System
 
 This project utilizes computer vision techniques to detect jaundice in captured images or video feed from a webcam. It then sends notifications via SMS using Twilio and controls an external device (via serial communication) based on the detection results.
